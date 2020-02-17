@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='icon' href='https://www.serebii.net/swordshield/pokemon/small/890.png'
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RampantEpsilon's Pokemon Challenge</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.6.2/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.6.2/firebase-firestore.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <!--Non-Firebase Scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:600|Sancreek&display=swap" rel="stylesheet">
+    <script src='pokemon.js'></script>
+    <script src='script.js'></script>
+    <style>
+      /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: absolute;; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(255,255,255,0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content */
+      .modal-content {
+        background-color: #000000;
+        color: #fff;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+
+      /* The Close Button */
+      .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body style='background-color:black;color:#cccccc;' onload='pokeLoader()'>
+    <table align='center'>
+      <tr>
+        <td>
+          <h2 id='title' align='center' onclick='hideInfo()'><u>RampantEpsilon's Pokemon Challenge</u></h2>
+          <p align='center'>See a problem? Contact RampantEpsilon#7868 on Discord for help.</p>
+          <h3 id='crPop' align='center'>Rules, Instructions, & Changelog</h3>
+        </td>
+      </tr>
+      <tr>
+        <td id="notifications" align='center'></td>
+      </tr>
+      <tr>
+        <td id='playerTools' align='center'>
+          <table>
+            <tr>
+              <td id='player' align='center' width='50%'></td>
+              <td id='pPoints' align='center'></td>
+            </tr>
+            <!--Pokemon Images-->
+            <tr>
+              <td colspan='2'>
+                <table width='100%'>
+                  <tr height='180px'>
+                    <td width='120px' align='center'>
+                      <div id='p1Img'></div>
+                    </td>
+                    <td width='120px' align='center'>
+                      <div id='p2Img'></div>
+                    </td>
+                    <td width='120px' align='center'>
+                      <div id='p3Img'></div>
+                    </td>
+                    <td width='120px' align='center'>
+                      <div id='p4Img'></div>
+                    </td>
+                    <td width='120px' align='center'>
+                      <div id='p5Img'></div>
+                    </td>
+                    <td width='120px' align='center'>
+                      <div id='p6Img'></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align='center'>
+                      <select id='poke1' onchange='pChange("poke1")'>
+                      </select>
+                    </td>
+                    <td align='center'>
+                      <select id='poke2' onchange='pChange("poke2")'>
+                      </select>
+                    </td>
+                    <td align='center'>
+                      <select id='poke3' onchange='pChange("poke3")'>
+                      </select>
+                    </td>
+                    <td align='center'>
+                      <select id='poke4' onchange='pChange("poke4")'>
+                      </select>
+                    </td>
+                    <td align='center'>
+                      <select id='poke5' onchange='pChange("poke5")'>
+                      </select>
+                    </td>
+                    <td align='center'>
+                      <select id='poke6' onchange='pChange("poke6")'>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan='6' align='center'>
+                      <select id='gamePokeList' onchange='filterPoke()'>
+                        <option value='0'>All 890 Pokemon</option>
+                        <!--<option value='1'>TBD</option>
+                        <option value='2'>TBD</option>
+                        <option value='3'>TBD</option>
+                        <option value='4'>TBD</option>
+                        <option value='5'>TBD</option>
+                        <option value='6'>TBD</option>-->
+                        <option value='7'>Alolan Dex (Sun/Moon Only)</option>
+                        <option value='7a'>Alolan Dex (Ultra Sun/Moon Only)</option>
+                        <option value='7b'>Kanto Dex (Let's Go Pikachu/Eevee)</option>
+                        <option value='8'>Galar Dex Only</option>
+                      </select>
+                      <button onclick='savePoke()' id='savePokemon'>Save Pokemon</button>
+                      <button onclick='loadPoke()' id='loadPokemon'>Load Pokemon</button>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!--User Input-->
+            <tr>
+              <td align='center' width="500px">
+                <button onclick="ko()">Knock Out (+3)</button>
+                <button onclick='raid()'>Raid Beat (+10)</button><br>
+                <button onclick='revive()'>Revive (-10)</button>
+                <button onclick='caught()'>Normal Capture (-6)</button>
+                <button onclick='named()'>Named Capture (-5)</button>
+              </td>
+              <td align='center' width='250px'>
+                <input id='passcode' type='password'></input><br>
+                <button onclick='enterPass()' id='enter'>Enter Passcode</button>
+                <button onclick='changePass()' id='change'>Change Passcode</button>
+                <button onclick='createPass()' id='create'>Create Passcode</button>
+                <button onclick='resetRoom()' id='reset'>Reset Points</button>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <!-- Rules, Instructions, & Changelog -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!--Rules-->
+        <p align='center'><b><u>Rules</u></b></p>
+        <p>Players earn points by doing various progression tasks within the game. These points allow players to capture Pokemon and revive team members. Winner is decided based on game progress when player reaches 0 points. In the event both players complete the game, the following will determine a winner:<br/>
+        <ul>
+          <li>Player with the Highest Points will win</li>
+          <li>Player with the most caught Pokemon will win</li>
+          <li>A PvP Battle to determine the winner (Can be Bo3 if players choose)</li>
+        </ul></p>
+        <!--Points-->
+        <p align='center'><b><u>Points</u></b></p>
+        <ul>
+          <li>+3 Points for every beaten Pokemon</li>
+          <li>+10 Points for every beaten Raid Pokemon</li>
+          <li>-10 Points for every Revive used</li>
+          <li>-6 Points for every non-named caught Pokemon</li>
+          <li>-5 Points for every named caught Pokemon</li>
+        </ul>
+        <!-- Instructions -->
+        <p align='center'><b><u>Instructions</u></b></p>
+        <p>To use this tracker, you will need to enter the URL epsilonpkmnchallenge.firebaseapp.com?player=[PLAYERNAME] where [PLAYERNAME] is replaced with the username you want to use.<br />
+        If you are seeing the message "Please see the instructions to setup the tracker.", you can then setup the passcode for the room.<br/>
+        After setting a password, you will have to refresh the page and login.</p>
+        <!-- Changelog -->
+        <p align='center'><b><u>Changelog</u></b></p>
+        <ul>
+          <li>2-17-20
+            <ul>
+              <li>Added Filter option for Alolan Dex (Ultra Sun/Moon)</li>
+              <li>Added Filter option for Kanto Dex (Let's Go Pikachu/Eevee)</li>
+              <li>Fixed issue where only the first slot would change when selecting multiple filters</li>
+              <li>Added link to full Changelog. Going forward only the latest three updates will be listed here.</li>
+            </ul>
+          </li>
+          <li>2-14-20
+            <ul>
+              <li>Added Filter option for Alolan Dex (Sun/Moon Only)</li>
+              <li>Fixed minor bug where switching between Alolan and Galar Dexs would cause some Pokemon to remain hidden.</li>
+            </ul>
+          </li>
+          <li>2-11-20
+            <ul>
+              <li>Added Filter option to Pokemon Viewer (Currently only Sword/Shield works)</li>
+              <li>Added contact information in case of issues with the tracker.</li>
+            </ul>
+          </li>
+          <li>See older changes <a href='changelog.html' target="_blank" style='color:white;'>here</a></li>
+        </ul>
+        <p align='center'><b><u>Upcoming Changes</u></b></p>
+        <ul>
+          <li>Add Sword/Shield DLC Pokemon (Awaiting June/December Releases)</li>
+          <li>Complete Filtering on a per-game level.</li>
+          <li>Point improvements (Potentially factoring different amounts per wild/trainer Pokemon and accounting Gyms/Trials)</li>
+        </ul>
+      </div>
+
+    </div>
+  </body>
+
+  <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("crPop");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</html>

@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <link rel='icon' href='https://www.serebii.net/swordshield/pokemon/small/890.png'
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RampantEpsilon's Pokemon Challenge</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.6.2/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.6.2/firebase-firestore.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <!--Non-Firebase Scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:600|Sancreek&display=swap" rel="stylesheet">
+    <script src='pokemon.js'></script>
+    <script src='script.js'></script>
+  </head>
+  <body onload='pokeLoader()'>
+    <table width='100%'>
+      <tr height='180px'>
+        <td width='120px' align='center'>
+          <div id='p1Img'></div>
+        </td>
+        <td width='120px' align='center'>
+          <div id='p2Img'></div>
+        </td>
+        <td width='120px' align='center'>
+          <div id='p3Img'></div>
+        </td>
+        <td width='120px' align='center'>
+          <div id='p4Img'></div>
+        </td>
+        <td width='120px' align='center'>
+          <div id='p5Img'></div>
+        </td>
+        <td width='120px' align='center'>
+          <div id='p6Img'></div>
+        </td>
+      </tr>
+      <tr>
+        <td align='center'>
+          <select id='poke1' onchange='pChange("poke1")'>
+          </select>
+        </td>
+        <td align='center'>
+          <select id='poke2' onchange='pChange("poke2")'>
+          </select>
+        </td>
+        <td align='center'>
+          <select id='poke3' onchange='pChange("poke3")'>
+          </select>
+        </td>
+        <td align='center'>
+          <select id='poke4' onchange='pChange("poke4")'>
+          </select>
+        </td>
+        <td align='center'>
+          <select id='poke5' onchange='pChange("poke5")'>
+          </select>
+        </td>
+        <td align='center'>
+          <select id='poke6' onchange='pChange("poke6")'>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan='6' align='center'>
+          <button onclick='randomPoke()' id='savePokemon'>Randomize Pokemon</button>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
