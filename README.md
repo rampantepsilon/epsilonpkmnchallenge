@@ -3,6 +3,8 @@
 
 <p>You can download the files yourself and set everything up within Firebase or you can visit <a href='https://epsilonpkmnchallenge.firebaseapp.com'>epsilonpkmnchallenge.firebaseapp.com</a> and play there.</p>
 
+<p>If you have any feedback or suggestions for this challenge, please contact me on Discord @ RampantEpsilon#7868</p>
+
 <h2>Future Plans</h2>
 <ul>
   <li>Add Sword/Shield DLC Pokemon (Awaiting June/December Releases)</li>
@@ -32,5 +34,5 @@
       <li>Added contact information in case of issues with the tracker.</li>
     </ul>
   </li>
-  <li>See older changes <a href='https://epsilonpkmnchallenge.firebaseapp.com/changelog.html' target='_blank' style='color:white;'>here</a></li>
+  <li>See older changes <a href='https://epsilonpkmnchallenge.firebaseapp.com/changelog.html'>here</a></li>
 </ul>
