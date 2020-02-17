@@ -32,5 +32,5 @@
       <li>Added contact information in case of issues with the tracker.</li>
     </ul>
   </li>
-  <li>See older changes <a href='changelog.html' target='_blank' style='color:white;'>here</a></li>
+  <li>See older changes <a href='https://epsilonpkmnchallenge.firebaseapp.com/changelog.html' target='_blank' style='color:white;'>here</a></li>
 </ul>
