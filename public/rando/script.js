@@ -1,15 +1,28 @@
-function randomPoke() {
+/*function randomPoke() {
   for (i=1; i<7; i++){
     var div = 'poke' + i;
     var x = Math.floor(Math.random()*890);
-    console.log(div);
-    console.log(x);
     if (x < 10){
       document.getElementById(div).value = "00" + (x + 1);
     } else if (x < 100){
       document.getElementById(div).value = "0" + (x + 1);
     } else {
       document.getElementById(div).value = x + 1;
+    }
+    pChange(div);
+  }
+}*/
+
+function randomPoke(){
+  for (i=1; i<7; i++){
+    var div = 'poke' + i;
+    var x = Math.floor(Math.random()*252);
+    if (x < 10){
+      document.getElementById(div).value = "00" + (x+1);
+    } else if (x < 100){
+      document.getElementById(div).value = "0" + (x+1);
+    } else {
+      document.getElementById(div).value = x;
     }
     pChange(div);
   }
