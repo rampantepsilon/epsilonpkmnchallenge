@@ -12,6 +12,13 @@ function getUrlVars(){
 }
 
 document.addEventListener("DOMContentLoaded", event =>{
+  //Login on enter
+  $("#passcode").keyup(function(event) {
+    if (event.keyCode === 13){
+      $("#enter").click();
+    }
+  })
+
   //Get player
   var user = getUrlVars()['player'];
   var approved = sessionStorage.getItem(user);
@@ -40,14 +47,17 @@ document.addEventListener("DOMContentLoaded", event =>{
               $("#savePokemon").show();
               $("#change").show();
               $("#reset").show();
+              $("#logout").show();
             } else {
               $("#savePokemon").hide();
               $("#change").hide();
               $("#reset").hide();
+              $("#logout").hide();
             }
           });
         } else {
           document.querySelector("#notifications").innerHTML = "<b><font color='red'>Please see the instructions to setup the tracker.</font></b>";
+          $("#logout").hide();
           $("#enter").hide();
           $("#change").hide();
           $("#reset").hide();
@@ -90,7 +100,7 @@ function enterPass(){
           $("#savePokemon").show();
           $("#change").show();
           $("#reset").show();
-          console.log('approved');
+          $("#logout").show();
         }
       }
     })
@@ -140,6 +150,16 @@ function createPass(){
         });
       }
     })
+  }
+}
+
+function logout(){
+  var user = getUrlVars()['player'];
+  var approved = sessionStorage.getItem(user);
+
+  if (approved == 'authorized'){
+    sessionStorage.removeItem(user);
+    location.reload();
   }
 }
 
