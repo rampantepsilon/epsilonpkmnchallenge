@@ -20,6 +20,8 @@
       <li>Added Filter option for Kalos Dex (X/Y)</li>
       <li>Added Filter option for Hoenn Dex (Omega Ruby/Alpha Sapphire)</li>
       <li>Added a GitHub page for contributors <a href='https://github.com/rampantepsilon/epsilonpkmnchallenge'>github.com/rampantepsilon/epsilonpkmnchallenge</a></li>
+      <li>Added Logout Button</li>
+      <li>Added ability to press Enter when entering passcode rather than hitting the Enter Passcode button</li>
     </ul>
   </li>
   <li>2-17-20
