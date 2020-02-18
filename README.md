@@ -10,6 +10,7 @@
   <li>Add Sword/Shield DLC Pokemon (Awaiting June/December Releases)</li>
   <li>Complete Filtering on a per-game level. (Gen 1 - 5)</li>
   <li>Point improvements (Potentially factoring different amounts per wild/trainer Pokemon and accounting Gyms/Trials) [NEED PLAYER FEEDBACK]</li>
+  <li>Create Standalone Desktop/Mobile app</li>
 </ul>
 
 <h2>Changelog</h2>
