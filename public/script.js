@@ -155,6 +155,44 @@ function filterPoke(){
       document.getElementById('poke6').options[i].style.display = 'initial';
     }
   }
+  //X & Y Only
+  else if (document.getElementById('gamePokeList').value == '6'){
+    for (i=1; i<891; i++){
+      document.getElementById('poke1').options[i].style.display = 'initial';
+      document.getElementById('poke2').options[i].style.display = 'initial';
+      document.getElementById('poke3').options[i].style.display = 'initial';
+      document.getElementById('poke4').options[i].style.display = 'initial';
+      document.getElementById('poke5').options[i].style.display = 'initial';
+      document.getElementById('poke6').options[i].style.display = 'initial';
+      if (!filter.kalos_xy.includes(i.toString())){
+        document.getElementById('poke1').options[i].style.display = "none";
+        document.getElementById('poke2').options[i].style.display = "none";
+        document.getElementById('poke3').options[i].style.display = "none";
+        document.getElementById('poke4').options[i].style.display = "none";
+        document.getElementById('poke5').options[i].style.display = "none";
+        document.getElementById('poke6').options[i].style.display = "none";
+      }
+    }
+  }
+  //Omega Ruby & Alpha Sapphire Only
+  else if (document.getElementById('gamePokeList').value == '6a'){
+    for (i=1; i<891; i++){
+      document.getElementById('poke1').options[i].style.display = 'initial';
+      document.getElementById('poke2').options[i].style.display = 'initial';
+      document.getElementById('poke3').options[i].style.display = 'initial';
+      document.getElementById('poke4').options[i].style.display = 'initial';
+      document.getElementById('poke5').options[i].style.display = 'initial';
+      document.getElementById('poke6').options[i].style.display = 'initial';
+      if (!filter.hoenn_oras.includes(i.toString())){
+        document.getElementById('poke1').options[i].style.display = "none";
+        document.getElementById('poke2').options[i].style.display = "none";
+        document.getElementById('poke3').options[i].style.display = "none";
+        document.getElementById('poke4').options[i].style.display = "none";
+        document.getElementById('poke5').options[i].style.display = "none";
+        document.getElementById('poke6').options[i].style.display = "none";
+      }
+    }
+  }
   //Sun & Moon Only
   else if (document.getElementById('gamePokeList').value == '7'){
     for (i=1; i<891; i++){

@@ -8,12 +8,19 @@
 <h2>Future Plans</h2>
 <ul>
   <li>Add Sword/Shield DLC Pokemon (Awaiting June/December Releases)</li>
-  <li>Complete Filtering on a per-game level. (Gen 1 - 6)</li>
+  <li>Complete Filtering on a per-game level. (Gen 1 - 5)</li>
   <li>Point improvements (Potentially factoring different amounts per wild/trainer Pokemon and accounting Gyms/Trials) [NEED PLAYER FEEDBACK]</li>
 </ul>
 
 <h2>Changelog</h2>
 <ul>
+  <li>2-17-20 (Second Update)
+    <ul>
+      <li>Added Filter option for Kalos Dex (X/Y)</li>
+      <li>Added Filter option for Hoenn Dex (Omega Ruby/Alpha Sapphire)</li>
+      <li>Added a GitHub page for contributors <a href='https://github.com/rampantepsilon/epsilonpkmnchallenge'>github.com/rampantepsilon/epsilonpkmnchallenge</a></li>
+    </ul>
+  </li>
   <li>2-17-20
     <ul>
       <li>Added Filter option for Alolan Dex (Ultra Sun/Moon)</li>
