@@ -15,6 +15,12 @@
 
 <h2>Changelog</h2>
 <ul>
+  <li>2-19-20
+    <ul>
+      <li>Added Filter option for Unova Dex (Black/White Only)</li>
+      <li>Added Filter option for Unova Dex (Black 2/White 2 Only)</li>
+    </ul>
+  </li>
   <li>2-17-20 (Second Update)
     <ul>
       <li>Added Filter option for Kalos Dex (X/Y)</li>
