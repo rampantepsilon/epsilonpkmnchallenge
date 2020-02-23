@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", event =>{
             document.querySelector("#pPoints").innerHTML = "<h2>Points Aquired: " + data.currentPoints + "</h2>";
             document.querySelector("#player").innerHTML = "<h2>Welcome Back, " + user + "</h2>";
             $("#create").hide();
-            if (sessionStorage.getItem(user) == 'authorized'){
+            if (sessionStorage.getItem(user) == encoder(data.password)){
               $("#savePokemon").show();
               $("#change").show();
               $("#reset").show();
@@ -76,7 +76,7 @@ function resetRoom(){
 
   pointTracker.get().then(function(doc){
     if (doc.exists){
-      if (approved == 'authorized'){
+      if (approved == encoder(doc.data().password)){
         pointTracker.update({ currentPoints: 0 });
       }
     }
@@ -94,9 +94,9 @@ function enterPass(){
     passcode = document.getElementById('passcode').value;
     pPass.get().then(function(doc){
       if (doc.exists){
-        var passCheck = doc.data().password;
-        if (passcode == passCheck){
-          sessionStorage.setItem(user, 'authorized');
+        var passCheck = encoder(doc.data().password);
+        if (encoder(passcode) == passCheck){
+          sessionStorage.setItem(user, encoder(passcode));
           $("#savePokemon").show();
           $("#change").show();
           $("#reset").show();
@@ -119,8 +119,9 @@ function changePass(){
     passcode = document.getElementById('passcode').value;
     pPass.get().then(function(doc){
       if (doc.exists){
-        if (approved == 'authorized'){
+        if (approved == encoder(doc.data().password)){
           pPass.update({ password: passcode });
+          sessionStorage.setItem(user, encoder(passcode));
         }
       }
     })
@@ -141,13 +142,16 @@ function createPass(){
         pPass.set({
           currentPoints: "0",
           password: passcode,
-          p1: '0',
-          p2: '0',
-          p3: '0',
-          p4: '0',
-          p5: '0',
-          p6: '0'
+          p1: '000',
+          p2: '000',
+          p3: '000',
+          p4: '000',
+          p5: '000',
+          p6: '000'
         });
+        sessionStorage.setItem(user, encoder(passcode));
+        document.getElementById('notifications').innerHTML = "Please wait while we set your page up.<br>If this takes more than 5 seconds, <a onclick='location.reload()'>click here</a>.";
+        setTimeout('location.reload(1)',2000);
       }
     })
   }
@@ -157,7 +161,7 @@ function logout(){
   var user = getUrlVars()['player'];
   var approved = sessionStorage.getItem(user);
 
-  if (approved == 'authorized'){
+  if (approved){
     sessionStorage.removeItem(user);
     location.reload();
   }
@@ -364,7 +368,7 @@ function savePoke(){
 
   pPass.get().then(function(doc){
     if (doc.exists){
-      if (approved == 'authorized'){
+      if (approved == encoder(doc.data().password)){
         pPass.update({
           p1: p1,
           p2: p2,
@@ -410,7 +414,7 @@ function ko(){
 
   pointTracker.get().then(function(doc){
     if (doc.exists){
-      if (approved == 'authorized'){
+      if (approved == encoder(doc.data().password)){
         var current = parseInt(doc.data().currentPoints);
         current += 3;
         pointTracker.update({ currentPoints: current });
@@ -428,7 +432,7 @@ function revive(){
 
   pointTracker.get().then(function(doc){
     if (doc.exists){
-      if (approved == 'authorized'){
+      if (approved == encoder(doc.data().password)){
         var current = parseInt(doc.data().currentPoints);
         current -= 10;
         pointTracker.update({ currentPoints: current });
@@ -446,7 +450,7 @@ function caught(){
 
   pointTracker.get().then(function(doc){
     if (doc.exists){
-      if (approved == 'authorized'){
+      if (approved == encoder(doc.data().password)){
         var current = parseInt(doc.data().currentPoints);
         current -= 6;
         pointTracker.update({ currentPoints: current });
@@ -464,7 +468,7 @@ function named(){
 
   pointTracker.get().then(function(doc){
     if (doc.exists){
-      if (approved == 'authorized'){
+      if (approved == encoder(doc.data().password)){
         var current = parseInt(doc.data().currentPoints);
         current -= 5;
         pointTracker.update({ currentPoints: current });
@@ -482,7 +486,7 @@ function raid(){
 
   pointTracker.get().then(function(doc){
     if (doc.exists){
-      if (approved == 'authorized'){
+      if (approved == encoder(doc.data().password)){
         var current = parseInt(doc.data().currentPoints);
         current += 10;
         pointTracker.update({ currentPoints: current });
@@ -538,4 +542,19 @@ function pokeLoader() {
   pokeSlot4();
   pokeSlot5();
   pokeSlot6();
+}
+
+function encoder(password){
+  var codedPass = [];
+  var passSplit = password.split("");
+  for (i=0; i<passSplit.length; i++){
+    var charCode = password.charCodeAt([i]);
+    if (charCode < 80){
+      codedPass[i] = String.fromCharCode(charCode+24);
+    } else {
+      codedPass[i] = String.fromCharCode(charCode-23);
+    }
+  }
+  var returnPass = codedPass.join("");
+  return returnPass;
 }

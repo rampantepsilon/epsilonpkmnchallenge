@@ -15,6 +15,13 @@
 
 <h2>Changelog</h2>
 <ul>
+  <li>2-23-20
+    <ul>
+      <li>Fixed issue where you could bypass logging in by using Web Console.</li>
+      <li>Added reload when complete for creating new player pages</li>
+      <li>Added extra security to passwords (Additional security may come later).</li>
+    </ul>
+  </li>
   <li>2-19-20
     <ul>
       <li>Added Filter option for Unova Dex (Black/White Only)</li>
