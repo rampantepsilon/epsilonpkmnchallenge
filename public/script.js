@@ -179,6 +179,44 @@ function filterPoke(){
       document.getElementById('poke6').options[i].style.display = 'initial';
     }
   }
+  //Diamond & Pearl Only
+  else if (document.getElementById('gamePokeList').value == '4'){
+    for (i=1; i<891; i++){
+      document.getElementById('poke1').options[i].style.display = 'initial';
+      document.getElementById('poke2').options[i].style.display = 'initial';
+      document.getElementById('poke3').options[i].style.display = 'initial';
+      document.getElementById('poke4').options[i].style.display = 'initial';
+      document.getElementById('poke5').options[i].style.display = 'initial';
+      document.getElementById('poke6').options[i].style.display = 'initial';
+      if (!filter.diamond_pearl.includes(i.toString())){
+        document.getElementById('poke1').options[i].style.display = "none";
+        document.getElementById('poke2').options[i].style.display = "none";
+        document.getElementById('poke3').options[i].style.display = "none";
+        document.getElementById('poke4').options[i].style.display = "none";
+        document.getElementById('poke5').options[i].style.display = "none";
+        document.getElementById('poke6').options[i].style.display = "none";
+      }
+    }
+  }
+  //Platinum Only
+  else if (document.getElementById('gamePokeList').value == '4a'){
+    for (i=1; i<891; i++){
+      document.getElementById('poke1').options[i].style.display = 'initial';
+      document.getElementById('poke2').options[i].style.display = 'initial';
+      document.getElementById('poke3').options[i].style.display = 'initial';
+      document.getElementById('poke4').options[i].style.display = 'initial';
+      document.getElementById('poke5').options[i].style.display = 'initial';
+      document.getElementById('poke6').options[i].style.display = 'initial';
+      if (!filter.platinum.includes(i.toString())){
+        document.getElementById('poke1').options[i].style.display = "none";
+        document.getElementById('poke2').options[i].style.display = "none";
+        document.getElementById('poke3').options[i].style.display = "none";
+        document.getElementById('poke4').options[i].style.display = "none";
+        document.getElementById('poke5').options[i].style.display = "none";
+        document.getElementById('poke6').options[i].style.display = "none";
+      }
+    }
+  }
   //Black & White Only
   else if (document.getElementById('gamePokeList').value == '5'){
     for (i=1; i<891; i++){
