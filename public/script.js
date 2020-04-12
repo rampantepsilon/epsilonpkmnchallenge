@@ -217,6 +217,25 @@ function filterPoke(){
       }
     }
   }
+  //HeartGold/SoulSilver Only
+  else if (document.getElementById('gamePokeList').value == '4b'){
+    for (i=1; i<891; i++){
+      document.getElementById('poke1').options[i].style.display = 'initial';
+      document.getElementById('poke2').options[i].style.display = 'initial';
+      document.getElementById('poke3').options[i].style.display = 'initial';
+      document.getElementById('poke4').options[i].style.display = 'initial';
+      document.getElementById('poke5').options[i].style.display = 'initial';
+      document.getElementById('poke6').options[i].style.display = 'initial';
+      if (!filter.johto_hgss.includes(i.toString())){
+        document.getElementById('poke1').options[i].style.display = "none";
+        document.getElementById('poke2').options[i].style.display = "none";
+        document.getElementById('poke3').options[i].style.display = "none";
+        document.getElementById('poke4').options[i].style.display = "none";
+        document.getElementById('poke5').options[i].style.display = "none";
+        document.getElementById('poke6').options[i].style.display = "none";
+      }
+    }
+  }
   //Black & White Only
   else if (document.getElementById('gamePokeList').value == '5'){
     for (i=1; i<891; i++){
@@ -454,7 +473,43 @@ function ko(){
     if (doc.exists){
       if (approved == encoder(doc.data().password)){
         var current = parseInt(doc.data().currentPoints);
-        current += 3;
+        current += 2;
+        pointTracker.update({ currentPoints: current });
+      }
+    }
+  })
+}
+
+function trainer(){
+  var user = getUrlVars()['player'];
+  var approved = sessionStorage.getItem(user);
+
+  const db = firebase.firestore();
+  const pointTracker = db.collection('users').doc(user);
+
+  pointTracker.get().then(function(doc){
+    if (doc.exists){
+      if (approved == encoder(doc.data().password)){
+        var current = parseInt(doc.data().currentPoints);
+        current += 4;
+        pointTracker.update({ currentPoints: current });
+      }
+    }
+  })
+}
+
+function gym(){
+  var user = getUrlVars()['player'];
+  var approved = sessionStorage.getItem(user);
+
+  const db = firebase.firestore();
+  const pointTracker = db.collection('users').doc(user);
+
+  pointTracker.get().then(function(doc){
+    if (doc.exists){
+      if (approved == encoder(doc.data().password)){
+        var current = parseInt(doc.data().currentPoints);
+        current += 6;
         pointTracker.update({ currentPoints: current });
       }
     }
