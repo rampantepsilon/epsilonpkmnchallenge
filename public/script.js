@@ -19,6 +19,12 @@ document.addEventListener("DOMContentLoaded", event =>{
     }
   })
 
+  $('#playerName').keyup(function(event){
+    if (event.keyCode === 13){
+      redirect();
+    }
+  })
+
   //Get player
   var user = getUrlVars()['player'];
   var approved = sessionStorage.getItem(user);
@@ -27,7 +33,9 @@ document.addEventListener("DOMContentLoaded", event =>{
     document.querySelector("#crPop").innerHTML = 'Rules, Instructions, & Changelog<br><br><h2>(Please see Intructions on how to setup the tracker.)</h2>';
     document.querySelector("#notifications").innerHTML = "";
     $("#playerTools").hide();
+    $('#playerRedirect').show();
   } else {
+    $('#playerRedirect').hide();
     //Initialize Values
     const app = firebase.app();
     const db = firebase.firestore();
@@ -66,6 +74,11 @@ document.addEventListener("DOMContentLoaded", event =>{
       })
   }
 });
+
+function redirect(){
+  var pName = document.getElementById('playerName').value;
+  window.location.href = 'https://pkmnchallenge.rampantepsilon.site?player=' + pName;
+}
 
 function resetRoom(){
   var user = getUrlVars()['player'];
