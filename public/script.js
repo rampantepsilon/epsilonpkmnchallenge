@@ -211,6 +211,25 @@ function filterPoke(){
       }
     }
   }
+  //Gold, Silver, & Crystal Only
+  else if (document.getElementById('gamePokeList').value == '2'){
+    for (i=1; i<891; i++){
+      document.getElementById('poke1').options[i].style.display = 'initial';
+      document.getElementById('poke2').options[i].style.display = 'initial';
+      document.getElementById('poke3').options[i].style.display = 'initial';
+      document.getElementById('poke4').options[i].style.display = 'initial';
+      document.getElementById('poke5').options[i].style.display = 'initial';
+      document.getElementById('poke6').options[i].style.display = 'initial';
+      if (!filter.johto_gsc.includes(i.toString())){
+        document.getElementById('poke1').options[i].style.display = "none";
+        document.getElementById('poke2').options[i].style.display = "none";
+        document.getElementById('poke3').options[i].style.display = "none";
+        document.getElementById('poke4').options[i].style.display = "none";
+        document.getElementById('poke5').options[i].style.display = "none";
+        document.getElementById('poke6').options[i].style.display = "none";
+      }
+    }
+  }
   //Ruby, Sapphire, & Emerald Only
   else if (document.getElementById('gamePokeList').value == '3'){
     for (i=1; i<891; i++){
