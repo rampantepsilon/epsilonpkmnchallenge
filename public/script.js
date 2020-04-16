@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", event =>{
 
 function redirect(){
   var pName = document.getElementById('playerName').value;
-  window.location.href = 'https://pkmnchallenge.rampantepsilon.site?player=' + pName;
+  window.location.href = window.location + '?player=' + pName;
 }
 
 function resetRoom(){
@@ -192,6 +192,44 @@ function filterPoke(){
       document.getElementById('poke6').options[i].style.display = 'initial';
     }
   }
+  //Red, Blue, Green, Yellow, FireRed, & LeafGreen Only
+  else if (document.getElementById('gamePokeList').value == '1'){
+    for (i=1; i<891; i++){
+      document.getElementById('poke1').options[i].style.display = 'initial';
+      document.getElementById('poke2').options[i].style.display = 'initial';
+      document.getElementById('poke3').options[i].style.display = 'initial';
+      document.getElementById('poke4').options[i].style.display = 'initial';
+      document.getElementById('poke5').options[i].style.display = 'initial';
+      document.getElementById('poke6').options[i].style.display = 'initial';
+      if (!filter.kanto_rbgyfrlg.includes(i.toString())){
+        document.getElementById('poke1').options[i].style.display = "none";
+        document.getElementById('poke2').options[i].style.display = "none";
+        document.getElementById('poke3').options[i].style.display = "none";
+        document.getElementById('poke4').options[i].style.display = "none";
+        document.getElementById('poke5').options[i].style.display = "none";
+        document.getElementById('poke6').options[i].style.display = "none";
+      }
+    }
+  }
+  //Ruby, Sapphire, & Emerald Only
+  else if (document.getElementById('gamePokeList').value == '3'){
+    for (i=1; i<891; i++){
+      document.getElementById('poke1').options[i].style.display = 'initial';
+      document.getElementById('poke2').options[i].style.display = 'initial';
+      document.getElementById('poke3').options[i].style.display = 'initial';
+      document.getElementById('poke4').options[i].style.display = 'initial';
+      document.getElementById('poke5').options[i].style.display = 'initial';
+      document.getElementById('poke6').options[i].style.display = 'initial';
+      if (!filter.hoenn_rse.includes(i.toString())){
+        document.getElementById('poke1').options[i].style.display = "none";
+        document.getElementById('poke2').options[i].style.display = "none";
+        document.getElementById('poke3').options[i].style.display = "none";
+        document.getElementById('poke4').options[i].style.display = "none";
+        document.getElementById('poke5').options[i].style.display = "none";
+        document.getElementById('poke6').options[i].style.display = "none";
+      }
+    }
+  }
   //Diamond & Pearl Only
   else if (document.getElementById('gamePokeList').value == '4'){
     for (i=1; i<891; i++){
@@ -201,7 +239,7 @@ function filterPoke(){
       document.getElementById('poke4').options[i].style.display = 'initial';
       document.getElementById('poke5').options[i].style.display = 'initial';
       document.getElementById('poke6').options[i].style.display = 'initial';
-      if (!filter.diamond_pearl.includes(i.toString())){
+      if (!filter.sinnoh_diamondpearl.includes(i.toString())){
         document.getElementById('poke1').options[i].style.display = "none";
         document.getElementById('poke2').options[i].style.display = "none";
         document.getElementById('poke3').options[i].style.display = "none";
@@ -220,7 +258,7 @@ function filterPoke(){
       document.getElementById('poke4').options[i].style.display = 'initial';
       document.getElementById('poke5').options[i].style.display = 'initial';
       document.getElementById('poke6').options[i].style.display = 'initial';
-      if (!filter.platinum.includes(i.toString())){
+      if (!filter.sinnoh_platinum.includes(i.toString())){
         document.getElementById('poke1').options[i].style.display = "none";
         document.getElementById('poke2').options[i].style.display = "none";
         document.getElementById('poke3').options[i].style.display = "none";
