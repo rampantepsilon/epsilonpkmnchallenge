@@ -155,8 +155,6 @@
                         <option value='7b'>Kanto Dex (Let's Go Pikachu/Eevee)</option>
                         <option value='8'>Galar Dex Only</option>
                       </select>
-                      <button onclick='savePoke()' id='savePokemon'>Save Pokemon</button>
-                      <button onclick='loadPoke()' id='loadPokemon'>Load Pokemon</button>
                     </td>
                   </tr>
                 </table>
@@ -216,6 +214,13 @@
         <!-- Changelog -->
         <p align='center'><b><u>Changelog</u></b></p>
         <ul>
+          <li>4-17-20
+            <ul>
+              <li>Added Auto Pokemon Loading to any player page that has been set up. This also removed the Load Pokemon button beside the filter list.</li>
+              <li>Removed Save Pokemon button. This was changed so that players don't have to press a button to save or load pokemon.</li>
+              <li>Removed unused code from the tracker.</li>
+            </ul>
+          </li>
           <li>4-16-20
             <ul>
               <li>Added Filter for Kanto Dex (Red/Blue/Green/Yellow/FireRed/LeafGreen Only)</li>
@@ -235,20 +240,13 @@
               <li>Minor fixes to bad functions</li>
             </ul>
           </li>
-          <li>2-23-20
-            <ul>
-              <li>Fixed issue where you could bypass logging in by using Web Console.</li>
-              <li>Added reload when complete for creating new player pages</li>
-              <li>Added extra security to passwords (Additional security may come later).</li>
-            </ul>
-          </li>
           <li>See older changes <a href='changelog.html' target="_blank" style='color:white;'>here</a></li>
         </ul>
         <p align='center'><b><u>Upcoming Changes</u></b></p>
         <ul>
           <li>Add Sword/Shield DLC Pokemon (Awaiting June/December Releases)</li>
-          <li>Complete Filtering on a per-game level.</li>
           <li>Point improvements (Potentially factoring different amounts per wild/trainer Pokemon and accounting Gyms/Trials)</li>
+          <li>Add a way to notify players when they aren't logged into the tracker.</li>
           <li>Adding a standalone Desktop/Mobile App</li>
         </ul>
       </div>

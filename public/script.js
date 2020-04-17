@@ -62,6 +62,19 @@ document.addEventListener("DOMContentLoaded", event =>{
               $("#reset").hide();
               $("#logout").hide();
             }
+
+            document.getElementById('poke1').value = data.p1;
+            document.getElementById('poke2').value = data.p2;
+            document.getElementById('poke3').value = data.p3;
+            document.getElementById('poke4').value = data.p4;
+            document.getElementById('poke5').value = data.p5;
+            document.getElementById('poke6').value = data.p6;
+            pChange('poke1');
+            pChange('poke2');
+            pChange('poke3');
+            pChange('poke4');
+            pChange('poke5');
+            pChange('poke6');
           });
         } else {
           document.querySelector("#notifications").innerHTML = "<b><font color='red'>Please see the instructions to setup the tracker.</font></b>";
@@ -509,29 +522,6 @@ function savePoke(){
   })
 }
 
-function loadPoke(){
-  var user = getUrlVars()['player'];
-
-  const db = firebase.firestore();
-  const pPass = db.collection('users').doc(user);
-
-  pPass.get().then(function(doc) {
-    data = doc.data();
-    document.getElementById('poke1').value = data.p1;
-    document.getElementById('poke2').value = data.p2;
-    document.getElementById('poke3').value = data.p3;
-    document.getElementById('poke4').value = data.p4;
-    document.getElementById('poke5').value = data.p5;
-    document.getElementById('poke6').value = data.p6;
-    pChange('poke1');
-    pChange('poke2');
-    pChange('poke3');
-    pChange('poke4');
-    pChange('poke5');
-    pChange('poke6');
-  })
-}
-
 function ko(){
   var user = getUrlVars()['player'];
   var approved = sessionStorage.getItem(user);
@@ -696,6 +686,7 @@ function pChange(position){
       document.getElementById('p6Img').innerHTML = "";
     }
   }
+  savePoke();
 }
 
 function pokeLoader() {
