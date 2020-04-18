@@ -59,9 +59,9 @@ function setPoke(num){
   }
 }
 
-function clear(){
+function clearSearch(){
   document.getElementById('search').value = "";
-  document.getElementById('selection').innerHTML = "";
+  document.getElementById('selection').innerHTML = "Search To Begin";
 }
 
 function searchPane(id){
