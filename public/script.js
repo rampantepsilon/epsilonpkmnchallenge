@@ -25,6 +25,12 @@ document.addEventListener("DOMContentLoaded", event =>{
     }
   })
 
+  $("#search").keyup(function(event){
+    if (event.keyCode === 13){
+      search();
+    }
+  })
+
   //Get player
   var user = getUrlVars()['player'];
   var approved = sessionStorage.getItem(user);
@@ -34,8 +40,14 @@ document.addEventListener("DOMContentLoaded", event =>{
     document.querySelector("#notifications").innerHTML = "";
     $("#playerTools").hide();
     $('#playerRedirect').show();
+    $('#show').hide();
+    $('#hide').hide();
+    $('#searchPane').hide();
   } else {
     $('#playerRedirect').hide();
+    $('#show').show();
+    $('#hide').hide();
+    $('#searchPane').hide();
     //Initialize Values
     const app = firebase.app();
     const db = firebase.firestore();
@@ -52,11 +64,13 @@ document.addEventListener("DOMContentLoaded", event =>{
             document.querySelector("#player").innerHTML = "<h2>Welcome Back, " + user + "</h2>";
             $("#create").hide();
             if (sessionStorage.getItem(user) == encoder(data.password)){
+              document.querySelector("#notifications").innerHTML = "&nbsp;";
               $("#savePokemon").show();
               $("#change").show();
               $("#reset").show();
               $("#logout").show();
             } else {
+              document.querySelector("#notifications").innerHTML = "<font color='red'>Please note: You are not logged in. Changes made will not be saved.</font>";
               $("#savePokemon").hide();
               $("#change").hide();
               $("#reset").hide();
@@ -127,6 +141,7 @@ function enterPass(){
           $("#change").show();
           $("#reset").show();
           $("#logout").show();
+          document.querySelector("#notifications").innerHTML = "&nbsp;";
         }
       }
     })
@@ -696,7 +711,6 @@ function pokeLoader() {
   pokeSlot4();
   pokeSlot5();
   pokeSlot6();
-  $('#searchPane').hide();
 }
 
 function encoder(password){

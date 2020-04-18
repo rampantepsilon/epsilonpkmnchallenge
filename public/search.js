@@ -62,6 +62,7 @@ function setPoke(num){
 function clearSearch(){
   document.getElementById('search').value = "";
   document.getElementById('selection').innerHTML = "Search To Begin";
+  document.getElementById('searchResults').innerHTML = '';
 }
 
 function searchPane(id){
