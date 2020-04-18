@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:600|Sancreek&display=swap" rel="stylesheet">
     <script src='pokemon.js'></script>
     <script src='script.js'></script>
+    <script src='search.js'></script>
     <style>
       /* The Modal (background) */
       .modal {
@@ -65,122 +66,144 @@
     <table align='center'>
       <tr>
         <td>
-          <h2 id='title' align='center'><u>RampantEpsilon's Pokemon Challenge</u></h2>
-          <p align='center'>See a problem? Contact RampantEpsilon#7868 on Discord for help.</p>
-          <h3 id='crPop' align='center'>Rules, Instructions, & Changelog</h3>
-        </td>
-      </tr>
-      <tr>
-        <td align='center' id='playerRedirect'>
-          Player Name: <input type='text' id='playerName'><br>
-          <button onclick='redirect()'>Go To Tracker</button>
-        </td>
-      </tr>
-      <tr>
-        <td id="notifications" align='center'></td>
-      </tr>
-      <tr>
-        <td id='playerTools' align='center'>
-          <table>
+          <table align='center'>
             <tr>
-              <td id='player' align='center' width='50%'></td>
-              <td id='pPoints' align='center'></td>
+              <td>
+                <h2 id='title' align='center'><u>RampantEpsilon's Pokemon Challenge</u></h2>
+                <p align='center'>See a problem? Contact RampantEpsilon#7868 on Discord for help.</p>
+                <h3 id='crPop' align='center'>Rules, Instructions, & Changelog</h3>
+              </td>
             </tr>
-            <!--Pokemon Images-->
             <tr>
-              <td colspan='2'>
-                <table width='100%'>
-                  <tr height='180px'>
-                    <td width='120px' align='center'>
-                      <div id='p1Img'></div>
-                    </td>
-                    <td width='120px' align='center'>
-                      <div id='p2Img'></div>
-                    </td>
-                    <td width='120px' align='center'>
-                      <div id='p3Img'></div>
-                    </td>
-                    <td width='120px' align='center'>
-                      <div id='p4Img'></div>
-                    </td>
-                    <td width='120px' align='center'>
-                      <div id='p5Img'></div>
-                    </td>
-                    <td width='120px' align='center'>
-                      <div id='p6Img'></div>
+              <td align='center' id='playerRedirect'>
+                Player Name: <input type='text' id='playerName'><br>
+                <button onclick='redirect()'>Go To Tracker</button>
+              </td>
+            </tr>
+            <tr>
+              <td id="notifications" align='center'></td>
+            </tr>
+            <tr>
+              <td id='playerTools' align='center'>
+                <table>
+                  <tr>
+                    <td id='player' align='center' width='50%'></td>
+                    <td id='pPoints' align='center'></td>
+                  </tr>
+                  <!--Pokemon Images-->
+                  <tr>
+                    <td colspan='2'>
+                      <table width='100%'>
+                        <tr height='180px'>
+                          <td width='120px' align='center'>
+                            <div id='p1Img'></div>
+                          </td>
+                          <td width='120px' align='center'>
+                            <div id='p2Img'></div>
+                          </td>
+                          <td width='120px' align='center'>
+                            <div id='p3Img'></div>
+                          </td>
+                          <td width='120px' align='center'>
+                            <div id='p4Img'></div>
+                          </td>
+                          <td width='120px' align='center'>
+                            <div id='p5Img'></div>
+                          </td>
+                          <td width='120px' align='center'>
+                            <div id='p6Img'></div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align='center'>
+                            <select id='poke1' onchange='pChange("poke1")'>
+                            </select>
+                          </td>
+                          <td align='center'>
+                            <select id='poke2' onchange='pChange("poke2")'>
+                            </select>
+                          </td>
+                          <td align='center'>
+                            <select id='poke3' onchange='pChange("poke3")'>
+                            </select>
+                          </td>
+                          <td align='center'>
+                            <select id='poke4' onchange='pChange("poke4")'>
+                            </select>
+                          </td>
+                          <td align='center'>
+                            <select id='poke5' onchange='pChange("poke5")'>
+                            </select>
+                          </td>
+                          <td align='center'>
+                            <select id='poke6' onchange='pChange("poke6")'>
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan='6' align='center'>
+                            <select id='gamePokeList' onchange='filterPoke()'>
+                              <option value='0'>All 890 Pokemon</option>
+                              <option value='1'>Kanto Dex (Red/Blue/Green/Yellow/FireRed/LeafGreen Only)</option>
+                              <option value='2'>Johto Dex (Gold/Silver/Crystal Only)</option>
+                              <option value='3'>Hoenn Dex (Ruby/Sapphire/Emerald Only)</option>
+                              <option value='4'>Sinnoh Dex (Diamond/Pearl Only)</option>
+                              <option value='4a'>Sinnoh Dex (Platinum Only)</option>
+                              <option value='4b'>Johto Dex (HeartGold/SoulSilver Only)</option>
+                              <option value='5'>Unova Dex (Black/White Only)</option>
+                              <option value='5a'>Unova Dex (Black 2/White 2 Only)</option>
+                              <option value='6'>Kalos Dex (X/Y Only)</option>
+                              <option value='6a'>Hoenn Dex (OR/AS Only)</option>
+                              <option value='7'>Alolan Dex (Sun/Moon Only)</option>
+                              <option value='7a'>Alolan Dex (Ultra Sun/Moon Only)</option>
+                              <option value='7b'>Kanto Dex (Let's Go Pikachu/Eevee)</option>
+                              <option value='8'>Galar Dex Only</option>
+                            </select>
+                          </td>
+                        </tr>
+                      </table>
                     </td>
                   </tr>
+                  <!--User Input-->
                   <tr>
-                    <td align='center'>
-                      <select id='poke1' onchange='pChange("poke1")'>
-                      </select>
+                    <td align='center' width="500px">
+                      <button onclick="ko()">Encounter Beaten (+2)</button>
+                      <button onclick='trainer()'>Trainer Beaten (+4)</button>
+                      <button onclick='gym()'>Gym Leader Beaten (+6)</button>
+                      <button onclick='raid()'>Raid Beat (+10)</button><br>
+                      <button onclick='revive()'>Revive (-10)</button>
+                      <button onclick='caught()'>Normal Capture (-6)</button>
+                      <button onclick='named()'>Named Capture (-5)</button>
                     </td>
-                    <td align='center'>
-                      <select id='poke2' onchange='pChange("poke2")'>
-                      </select>
-                    </td>
-                    <td align='center'>
-                      <select id='poke3' onchange='pChange("poke3")'>
-                      </select>
-                    </td>
-                    <td align='center'>
-                      <select id='poke4' onchange='pChange("poke4")'>
-                      </select>
-                    </td>
-                    <td align='center'>
-                      <select id='poke5' onchange='pChange("poke5")'>
-                      </select>
-                    </td>
-                    <td align='center'>
-                      <select id='poke6' onchange='pChange("poke6")'>
-                      </select>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan='6' align='center'>
-                      <select id='gamePokeList' onchange='filterPoke()'>
-                        <option value='0'>All 890 Pokemon</option>
-                        <option value='1'>Kanto Dex (Red/Blue/Green/Yellow/FireRed/LeafGreen Only)</option>
-                        <option value='2'>Johto Dex (Gold/Silver/Crystal Only)</option>
-                        <option value='3'>Hoenn Dex (Ruby/Sapphire/Emerald Only)</option>
-                        <option value='4'>Sinnoh Dex (Diamond/Pearl Only)</option>
-                        <option value='4a'>Sinnoh Dex (Platinum Only)</option>
-                        <option value='4b'>Johto Dex (HeartGold/SoulSilver Only)</option>
-                        <option value='5'>Unova Dex (Black/White Only)</option>
-                        <option value='5a'>Unova Dex (Black 2/White 2 Only)</option>
-                        <option value='6'>Kalos Dex (X/Y Only)</option>
-                        <option value='6a'>Hoenn Dex (OR/AS Only)</option>
-                        <option value='7'>Alolan Dex (Sun/Moon Only)</option>
-                        <option value='7a'>Alolan Dex (Ultra Sun/Moon Only)</option>
-                        <option value='7b'>Kanto Dex (Let's Go Pikachu/Eevee)</option>
-                        <option value='8'>Galar Dex Only</option>
-                      </select>
+                    <td align='center' width='250px'>
+                      <input id='passcode' type='password'></input><br>
+                      <button onclick='enterPass()' id='enter'>Enter Passcode</button>
+                      <button onclick='changePass()' id='change'>Change Passcode</button>
+                      <button onclick='createPass()' id='create'>Create Passcode</button>
+                      <button onclick='logout()' id='logout'>Logout</button>
+                      <button onclick='resetRoom()' id='reset'>Reset Points</button>
                     </td>
                   </tr>
                 </table>
               </td>
             </tr>
-            <!--User Input-->
-            <tr>
-              <td align='center' width="500px">
-                <button onclick="ko()">Encounter Beaten (+2)</button>
-                <button onclick='trainer()'>Trainer Beaten (+4)</button>
-                <button onclick='gym()'>Gym Leader Beaten (+6)</button>
-                <button onclick='raid()'>Raid Beat (+10)</button><br>
-                <button onclick='revive()'>Revive (-10)</button>
-                <button onclick='caught()'>Normal Capture (-6)</button>
-                <button onclick='named()'>Named Capture (-5)</button>
-              </td>
-              <td align='center' width='250px'>
-                <input id='passcode' type='password'></input><br>
-                <button onclick='enterPass()' id='enter'>Enter Passcode</button>
-                <button onclick='changePass()' id='change'>Change Passcode</button>
-                <button onclick='createPass()' id='create'>Create Passcode</button>
-                <button onclick='logout()' id='logout'>Logout</button>
-                <button onclick='resetRoom()' id='reset'>Reset Points</button>
-              </td>
-            </tr>
           </table>
+        </td>
+        <td align='center' id='show' onclick='searchPane(this.id)'>
+          <img src='left.png'>
+        </td>
+        <td align='center' valign='top' id='searchPane'>
+          <input type='text' id='search'></input>
+          <button onclick='search()'>Search</button>
+          <button onclick='clear()'>Clear</button><br>
+          <div id='selection'>Search To Begin</div><br>
+          <button onclick='setPoke(1)'>Slot 1</button>
+          <button onclick='setPoke(2)'>Slot 2</button>
+          <button onclick='setPoke(3)'>Slot 3</button>
+          <button onclick='setPoke(4)'>Slot 4</button>
+          <button onclick='setPoke(5)'>Slot 5</button>
+          <button onclick='setPoke(6)'>Slot 6</button>
+          <div id='searchResults'></div>
         </td>
       </tr>
     </table>
@@ -209,11 +232,20 @@
         </ul>
         <!-- Instructions -->
         <p align='center'><b><u>Instructions</u></b></p>
-        <p>To use this tracker, you will need to enter the URL pkmnchallenge.rampantepsilon.site?player=[PLAYERNAME] where [PLAYERNAME] is replaced with the username you want to use.<br />
-        If you are seeing the message "Please see the instructions to setup the tracker.", you can then setup the passcode for the room.</p>
+        <p>
+          To use this tracker, you will need to enter the URL pkmnchallenge.rampantepsilon.site?player=[PLAYERNAME] where [PLAYERNAME] is replaced with the username you want to use.<br />
+          If you are seeing the message "Please see the instructions to setup the tracker.", you can then setup the passcode for the room.<br /><br />
+          Search Instructions - To search, click the arrow on the right side of the tracker. This should show a search box and under it should read "Search To Begin". Type part or all of the Pokemon's name in the box and click search. This will show a list of all Pokemon with matching letters in their name. Click on the Pokemon to change "Search To Begin" to the Pokemon's name. After this has changed simply click the slot you are putting the Pokemon in (1-6). The change should automatically update and save if you are logged in.
+        </p>
         <!-- Changelog -->
         <p align='center'><b><u>Changelog</u></b></p>
         <ul>
+          <li>4-17-20 (Update 2)
+            <ul>
+              <li>Added a Search Feature to adding Pokemon without needing to know National Dex order. Click the arrow on the right side to start.</li>
+              <li>Added Instructions for Search Feature to Instructions Section</li>
+            </ul>
+          </li>
           <li>4-17-20
             <ul>
               <li>Added Auto Pokemon Loading to any player page that has been set up. This also removed the Load Pokemon button beside the filter list.</li>
@@ -229,17 +261,6 @@
               <li>With the filters being completed, there is not any planned updates for the challenge until Sword/Shield DLC is released.</li>
             </ul>
           </li>
-          <li>4-12-20
-            <ul>
-              <li>Added Filter option for Sinnoh Dex (Diamond/Pearl Only)</li>
-              <li>Added Filter option for Sinnoh Dex (Platinum Only)</li>
-              <li>Added Filter option for Johto Dex (HeartGold/SoulSilver Only)</li>
-              <li>Updated URL in instructions to match new domain name. (Old domain name of epsilonpkmnchallenge.firebaseapp.com will still work)</li>
-              <li>Updated point system to lessen the chance of points being too high during a run</li>
-              <li>Added Player Redirection if visiting from the main page.</li>
-              <li>Minor fixes to bad functions</li>
-            </ul>
-          </li>
           <li>See older changes <a href='changelog.html' target="_blank" style='color:white;'>here</a></li>
         </ul>
         <p align='center'><b><u>Upcoming Changes</u></b></p>
@@ -247,6 +268,7 @@
           <li>Add Sword/Shield DLC Pokemon (Awaiting June/December Releases)</li>
           <li>Point improvements (Potentially factoring different amounts per wild/trainer Pokemon and accounting Gyms/Trials)</li>
           <li>Add a way to notify players when they aren't logged into the tracker.</li>
+          <li>Ability to add custom backgrounds</li>
           <li>Adding a standalone Desktop/Mobile App</li>
         </ul>
       </div>

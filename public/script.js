@@ -696,6 +696,7 @@ function pokeLoader() {
   pokeSlot4();
   pokeSlot5();
   pokeSlot6();
+  $('#searchPane').hide();
 }
 
 function encoder(password){
