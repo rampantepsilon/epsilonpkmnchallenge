@@ -212,296 +212,156 @@ function filterPoke(){
   //All 890 Pokemon
   if (document.getElementById('gamePokeList').value == '0'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
+      $('option.'+i).show();
     }
   }
   //Red, Blue, Green, Yellow, FireRed, & LeafGreen Only
   else if (document.getElementById('gamePokeList').value == '1'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
       if (!filter.kanto_rbgyfrlg.includes(i.toString())){
-        document.getElementById('poke1').options[i].style.display = "none";
-        document.getElementById('poke2').options[i].style.display = "none";
-        document.getElementById('poke3').options[i].style.display = "none";
-        document.getElementById('poke4').options[i].style.display = "none";
-        document.getElementById('poke5').options[i].style.display = "none";
-        document.getElementById('poke6').options[i].style.display = "none";
+        $('option.'+i).hide();
+      } else {
+        $('option.'+i).show();
       }
     }
   }
   //Gold, Silver, & Crystal Only
   else if (document.getElementById('gamePokeList').value == '2'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
       if (!filter.johto_gsc.includes(i.toString())){
-        document.getElementById('poke1').options[i].style.display = "none";
-        document.getElementById('poke2').options[i].style.display = "none";
-        document.getElementById('poke3').options[i].style.display = "none";
-        document.getElementById('poke4').options[i].style.display = "none";
-        document.getElementById('poke5').options[i].style.display = "none";
-        document.getElementById('poke6').options[i].style.display = "none";
+        $('option.'+i).hide();
+      } else {
+        $('option.'+i).show();
       }
     }
   }
   //Ruby, Sapphire, & Emerald Only
   else if (document.getElementById('gamePokeList').value == '3'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
       if (!filter.hoenn_rse.includes(i.toString())){
-        document.getElementById('poke1').options[i].style.display = "none";
-        document.getElementById('poke2').options[i].style.display = "none";
-        document.getElementById('poke3').options[i].style.display = "none";
-        document.getElementById('poke4').options[i].style.display = "none";
-        document.getElementById('poke5').options[i].style.display = "none";
-        document.getElementById('poke6').options[i].style.display = "none";
+        $('option.'+i).hide();
+      } else {
+        $('option.'+i).show();
       }
     }
   }
   //Diamond & Pearl Only
   else if (document.getElementById('gamePokeList').value == '4'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
       if (!filter.sinnoh_diamondpearl.includes(i.toString())){
-        document.getElementById('poke1').options[i].style.display = "none";
-        document.getElementById('poke2').options[i].style.display = "none";
-        document.getElementById('poke3').options[i].style.display = "none";
-        document.getElementById('poke4').options[i].style.display = "none";
-        document.getElementById('poke5').options[i].style.display = "none";
-        document.getElementById('poke6').options[i].style.display = "none";
+        $('option.'+i).hide();
+      } else {
+        $('option.'+i).show();
       }
     }
   }
   //Platinum Only
   else if (document.getElementById('gamePokeList').value == '4a'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
       if (!filter.sinnoh_platinum.includes(i.toString())){
-        document.getElementById('poke1').options[i].style.display = "none";
-        document.getElementById('poke2').options[i].style.display = "none";
-        document.getElementById('poke3').options[i].style.display = "none";
-        document.getElementById('poke4').options[i].style.display = "none";
-        document.getElementById('poke5').options[i].style.display = "none";
-        document.getElementById('poke6').options[i].style.display = "none";
+        $('option.'+i).hide();
+      } else {
+        $('option.'+i).show();
       }
     }
   }
   //HeartGold/SoulSilver Only
   else if (document.getElementById('gamePokeList').value == '4b'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
       if (!filter.johto_hgss.includes(i.toString())){
-        document.getElementById('poke1').options[i].style.display = "none";
-        document.getElementById('poke2').options[i].style.display = "none";
-        document.getElementById('poke3').options[i].style.display = "none";
-        document.getElementById('poke4').options[i].style.display = "none";
-        document.getElementById('poke5').options[i].style.display = "none";
-        document.getElementById('poke6').options[i].style.display = "none";
+        $('option.'+i).hide();
+      } else {
+        $('option.'+i).show();
       }
     }
   }
   //Black & White Only
   else if (document.getElementById('gamePokeList').value == '5'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
       if (!filter.unova_bw.includes(i.toString())){
-        document.getElementById('poke1').options[i].style.display = "none";
-        document.getElementById('poke2').options[i].style.display = "none";
-        document.getElementById('poke3').options[i].style.display = "none";
-        document.getElementById('poke4').options[i].style.display = "none";
-        document.getElementById('poke5').options[i].style.display = "none";
-        document.getElementById('poke6').options[i].style.display = "none";
+        $('option.'+i).hide();
+      } else {
+        $('option.'+i).show();
       }
     }
   }
   //Black 2 & White 2 Only
   else if (document.getElementById('gamePokeList').value == '5a'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
       if (!filter.unova_bw2.includes(i.toString())){
-        document.getElementById('poke1').options[i].style.display = "none";
-        document.getElementById('poke2').options[i].style.display = "none";
-        document.getElementById('poke3').options[i].style.display = "none";
-        document.getElementById('poke4').options[i].style.display = "none";
-        document.getElementById('poke5').options[i].style.display = "none";
-        document.getElementById('poke6').options[i].style.display = "none";
+        $('option.'+i).hide();
+      } else {
+        $('option.'+i).show();
       }
     }
   }
   //X & Y Only
   else if (document.getElementById('gamePokeList').value == '6'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
       if (!filter.kalos_xy.includes(i.toString())){
-        document.getElementById('poke1').options[i].style.display = "none";
-        document.getElementById('poke2').options[i].style.display = "none";
-        document.getElementById('poke3').options[i].style.display = "none";
-        document.getElementById('poke4').options[i].style.display = "none";
-        document.getElementById('poke5').options[i].style.display = "none";
-        document.getElementById('poke6').options[i].style.display = "none";
+        $('option.'+i).hide();
+      } else {
+        $('option.'+i).show();
       }
     }
   }
   //Omega Ruby & Alpha Sapphire Only
   else if (document.getElementById('gamePokeList').value == '6a'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
       if (!filter.hoenn_oras.includes(i.toString())){
-        document.getElementById('poke1').options[i].style.display = "none";
-        document.getElementById('poke2').options[i].style.display = "none";
-        document.getElementById('poke3').options[i].style.display = "none";
-        document.getElementById('poke4').options[i].style.display = "none";
-        document.getElementById('poke5').options[i].style.display = "none";
-        document.getElementById('poke6').options[i].style.display = "none";
+        $('option.'+i).hide();
+      } else {
+        $('option.'+i).show();
       }
     }
   }
   //Sun & Moon Only
   else if (document.getElementById('gamePokeList').value == '7'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
       if (!filter.sun_moon.includes(i.toString())){
-        document.getElementById('poke1').options[i].style.display = "none";
-        document.getElementById('poke2').options[i].style.display = "none";
-        document.getElementById('poke3').options[i].style.display = "none";
-        document.getElementById('poke4').options[i].style.display = "none";
-        document.getElementById('poke5').options[i].style.display = "none";
-        document.getElementById('poke6').options[i].style.display = "none";
+        $('option.'+i).hide();
+      } else {
+        $('option.'+i).show();
       }
     }
   }
   //Ultra Sun & Moon Only
   else if (document.getElementById('gamePokeList').value == '7a'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
       if (!filter.ultra_sun_moon.includes(i.toString())){
-        document.getElementById('poke1').options[i].style.display = "none";
-        document.getElementById('poke2').options[i].style.display = "none";
-        document.getElementById('poke3').options[i].style.display = "none";
-        document.getElementById('poke4').options[i].style.display = "none";
-        document.getElementById('poke5').options[i].style.display = "none";
-        document.getElementById('poke6').options[i].style.display = "none";
+        $('option.'+i).hide();
+      } else {
+        $('option.'+i).show();
       }
     }
   }
   //Let's Go Pikachu/Eevee Only
   else if (document.getElementById('gamePokeList').value == '7b'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
       if (!filter.kanto_lgpika.includes(i.toString())){
-        document.getElementById('poke1').options[i].style.display = "none";
-        document.getElementById('poke2').options[i].style.display = "none";
-        document.getElementById('poke3').options[i].style.display = "none";
-        document.getElementById('poke4').options[i].style.display = "none";
-        document.getElementById('poke5').options[i].style.display = "none";
-        document.getElementById('poke6').options[i].style.display = "none";
+        $('option.'+i).hide();
+      } else {
+        $('option.'+i).show();
       }
     }
   }
   //Sword & Shield
   else if (document.getElementById('gamePokeList').value == '8'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
       if (!filter.swordshield.includes(i.toString())){
-        document.getElementById('poke1').options[i].style.display = "none";
-        document.getElementById('poke2').options[i].style.display = "none";
-        document.getElementById('poke3').options[i].style.display = "none";
-        document.getElementById('poke4').options[i].style.display = "none";
-        document.getElementById('poke5').options[i].style.display = "none";
-        document.getElementById('poke6').options[i].style.display = "none";
+        $('option.'+i).hide();
+      } else {
+        $('option.'+i).show();
       }
     }
   }
   //Sword & Shield Expansions
   else if (document.getElementById('gamePokeList').value == '8a'){
     for (i=1; i<891; i++){
-      document.getElementById('poke1').options[i].style.display = 'initial';
-      document.getElementById('poke2').options[i].style.display = 'initial';
-      document.getElementById('poke3').options[i].style.display = 'initial';
-      document.getElementById('poke4').options[i].style.display = 'initial';
-      document.getElementById('poke5').options[i].style.display = 'initial';
-      document.getElementById('poke6').options[i].style.display = 'initial';
       if (!filter.swordshield.includes(i.toString())){
-        document.getElementById('poke1').options[i].style.display = "none";
-        document.getElementById('poke2').options[i].style.display = "none";
-        document.getElementById('poke3').options[i].style.display = "none";
-        document.getElementById('poke4').options[i].style.display = "none";
-        document.getElementById('poke5').options[i].style.display = "none";
-        document.getElementById('poke6').options[i].style.display = "none";
+        $('option.'+i).hide();
+      } else {
+        $('option.'+i).show();
       }
     }
   }

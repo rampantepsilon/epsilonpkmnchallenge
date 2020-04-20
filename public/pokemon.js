@@ -897,6 +897,7 @@ var poke = {
 var filter = {
   //151
   "kanto_rbgyfrlg":[
+    '0',
     '1',
     '2',
     '3',
@@ -4552,6 +4553,7 @@ function pokeSlot1() {
     } else {
       option.value = i;
     }
+    option.className = i;
   	x.add(option);
   }
 }
@@ -4568,6 +4570,7 @@ function pokeSlot2() {
     } else {
       option.value = i;
     }
+    option.className = i;
   	x.add(option);
   }
 }
@@ -4584,6 +4587,7 @@ function pokeSlot3() {
     } else {
       option.value = i;
     }
+    option.className = i;
   	x.add(option);
   }
 }
@@ -4600,6 +4604,7 @@ function pokeSlot4() {
     } else {
       option.value = i;
     }
+    option.className = i;
   	x.add(option);
   }
 }
@@ -4616,6 +4621,7 @@ function pokeSlot5() {
     } else {
       option.value = i;
     }
+    option.className = i;
   	x.add(option);
   }
 }
@@ -4632,6 +4638,7 @@ function pokeSlot6() {
     } else {
       option.value = i;
     }
+    option.className = i;
   	x.add(option);
   }
 }
