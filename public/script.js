@@ -209,15 +209,16 @@ function logout(){
 }
 
 function filterPoke(){
-  //All 890 Pokemon
+  var totalPokes = 894; //Should be one more than max
+  //All 893 Pokemon
   if (document.getElementById('gamePokeList').value == '0'){
-    for (i=1; i<891; i++){
+    for (i=1; i<894; i++){
       $('option.'+i).show();
     }
   }
   //Red, Blue, Green, Yellow, FireRed, & LeafGreen Only
   else if (document.getElementById('gamePokeList').value == '1'){
-    for (i=1; i<891; i++){
+    for (i=1; i<894; i++){
       if (!filter.kanto_rbgyfrlg.includes(i.toString())){
         $('option.'+i).hide();
       } else {
@@ -227,7 +228,7 @@ function filterPoke(){
   }
   //Gold, Silver, & Crystal Only
   else if (document.getElementById('gamePokeList').value == '2'){
-    for (i=1; i<891; i++){
+    for (i=1; i<894; i++){
       if (!filter.johto_gsc.includes(i.toString())){
         $('option.'+i).hide();
       } else {
@@ -237,7 +238,7 @@ function filterPoke(){
   }
   //Ruby, Sapphire, & Emerald Only
   else if (document.getElementById('gamePokeList').value == '3'){
-    for (i=1; i<891; i++){
+    for (i=1; i<894; i++){
       if (!filter.hoenn_rse.includes(i.toString())){
         $('option.'+i).hide();
       } else {
@@ -247,7 +248,7 @@ function filterPoke(){
   }
   //Diamond & Pearl Only
   else if (document.getElementById('gamePokeList').value == '4'){
-    for (i=1; i<891; i++){
+    for (i=1; i<894; i++){
       if (!filter.sinnoh_diamondpearl.includes(i.toString())){
         $('option.'+i).hide();
       } else {
@@ -257,7 +258,7 @@ function filterPoke(){
   }
   //Platinum Only
   else if (document.getElementById('gamePokeList').value == '4a'){
-    for (i=1; i<891; i++){
+    for (i=1; i<894; i++){
       if (!filter.sinnoh_platinum.includes(i.toString())){
         $('option.'+i).hide();
       } else {
@@ -267,7 +268,7 @@ function filterPoke(){
   }
   //HeartGold/SoulSilver Only
   else if (document.getElementById('gamePokeList').value == '4b'){
-    for (i=1; i<891; i++){
+    for (i=1; i<894; i++){
       if (!filter.johto_hgss.includes(i.toString())){
         $('option.'+i).hide();
       } else {
@@ -277,7 +278,7 @@ function filterPoke(){
   }
   //Black & White Only
   else if (document.getElementById('gamePokeList').value == '5'){
-    for (i=1; i<891; i++){
+    for (i=1; i<894; i++){
       if (!filter.unova_bw.includes(i.toString())){
         $('option.'+i).hide();
       } else {
@@ -287,7 +288,7 @@ function filterPoke(){
   }
   //Black 2 & White 2 Only
   else if (document.getElementById('gamePokeList').value == '5a'){
-    for (i=1; i<891; i++){
+    for (i=1; i<894; i++){
       if (!filter.unova_bw2.includes(i.toString())){
         $('option.'+i).hide();
       } else {
@@ -297,7 +298,7 @@ function filterPoke(){
   }
   //X & Y Only
   else if (document.getElementById('gamePokeList').value == '6'){
-    for (i=1; i<891; i++){
+    for (i=1; i<894; i++){
       if (!filter.kalos_xy.includes(i.toString())){
         $('option.'+i).hide();
       } else {
@@ -307,7 +308,7 @@ function filterPoke(){
   }
   //Omega Ruby & Alpha Sapphire Only
   else if (document.getElementById('gamePokeList').value == '6a'){
-    for (i=1; i<891; i++){
+    for (i=1; i<894; i++){
       if (!filter.hoenn_oras.includes(i.toString())){
         $('option.'+i).hide();
       } else {
@@ -317,7 +318,7 @@ function filterPoke(){
   }
   //Sun & Moon Only
   else if (document.getElementById('gamePokeList').value == '7'){
-    for (i=1; i<891; i++){
+    for (i=1; i<894; i++){
       if (!filter.sun_moon.includes(i.toString())){
         $('option.'+i).hide();
       } else {
@@ -327,7 +328,7 @@ function filterPoke(){
   }
   //Ultra Sun & Moon Only
   else if (document.getElementById('gamePokeList').value == '7a'){
-    for (i=1; i<891; i++){
+    for (i=1; i<894; i++){
       if (!filter.ultra_sun_moon.includes(i.toString())){
         $('option.'+i).hide();
       } else {
@@ -337,7 +338,7 @@ function filterPoke(){
   }
   //Let's Go Pikachu/Eevee Only
   else if (document.getElementById('gamePokeList').value == '7b'){
-    for (i=1; i<891; i++){
+    for (i=1; i<894; i++){
       if (!filter.kanto_lgpika.includes(i.toString())){
         $('option.'+i).hide();
       } else {
@@ -347,7 +348,7 @@ function filterPoke(){
   }
   //Sword & Shield
   else if (document.getElementById('gamePokeList').value == '8'){
-    for (i=1; i<891; i++){
+    for (i=1; i<894; i++){
       if (!filter.swordshield.includes(i.toString())){
         $('option.'+i).hide();
       } else {
@@ -357,8 +358,8 @@ function filterPoke(){
   }
   //Sword & Shield Expansions
   else if (document.getElementById('gamePokeList').value == '8a'){
-    for (i=1; i<891; i++){
-      if (!filter.swordshield.includes(i.toString())){
+    for (i=1; i<894; i++){
+      if (!filter.ioa_swsh.includes(i.toString())){
         $('option.'+i).hide();
       } else {
         $('option.'+i).show();
